@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
-    [SerializeField] private AcidDamagePlane acidDamagePlane;
-
     PlayerMovmentV2_0 playerMovment;
     AudioSource audioSource;
 
@@ -28,7 +26,6 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioClip WalkSoundAudio;
     [SerializeField] private AudioClip JumpSoundAudio;
     [SerializeField] private AudioClip DownSoundAudio;
-    [SerializeField] private AudioClip DownAcidPlaneSoundAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +36,6 @@ public class PlayerSound : MonoBehaviour
         playerMovment.playerWalk += playerWalkSound;
         playerMovment.playerJump += playerJumpControllerSound;
         playerMovment.playerDown += playerDownSound;
-        acidDamagePlane.DownAcid += playerDownAcid;
     }
 
     // Update is called once per frame
@@ -144,13 +140,5 @@ public class PlayerSound : MonoBehaviour
         //DownSoundWas = true;
 
         timerDownStart = true;
-    }
-
-    private void playerDownAcid()
-    {
-        audioSource.volume = 0.5f;
-        audioSource.pitch = 0.5f;
-        audioSource.clip = DownAcidPlaneSoundAudio;
-        audioSource.Play();
     }
 }
