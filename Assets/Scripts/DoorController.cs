@@ -7,8 +7,13 @@ public class DoorController : MonoBehaviour
 {
     [SerializeField] HitProcessing hitProcessing;
 
+    private bool doorControllerOn = false;
+
     public UnityAction DoorControllerAnim;
     public UnityAction LevelerControllerAnim; 
+    
+    public UnityAction DoorSoundAction;
+    public UnityAction LevelerSoundAction; 
     
     public UnityAction DoorControllerAnimClose;
     public UnityAction LevelerControllerAnimClose;
@@ -37,9 +42,14 @@ public class DoorController : MonoBehaviour
 
     private void InvokeControllerDoor()
     {
+        if (doorControllerOn == true) return;
         DoorControllerAnim?.Invoke();
         LevelerControllerAnim?.Invoke();
+
+        LevelerSoundAction?.Invoke();
+
         timerStart = true;
+        doorControllerOn = true;
     }
 
     private void CloseControllerDoor()
@@ -49,5 +59,9 @@ public class DoorController : MonoBehaviour
 
         DoorControllerAnimClose?.Invoke();
         LevelerControllerAnimClose?.Invoke();
+
+        LevelerSoundAction?.Invoke();
+
+        doorControllerOn = false;
     }
 }
