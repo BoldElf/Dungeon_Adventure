@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(PlayerMovmentV2_0))]
 
+[RequireComponent(typeof(PlayerMovmentV2_0))]
 public class PlayerSound : MonoBehaviour
 {
     [SerializeField] private AcidDamagePlane acidDamagePlane;
 
     PlayerMovmentV2_0 playerMovment;
-    AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     private float timer;
     private float timerDown;
@@ -34,7 +33,6 @@ public class PlayerSound : MonoBehaviour
     void Start()
     {
         rb_object = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
         playerMovment = GetComponent<PlayerMovmentV2_0>();
         playerMovment.playerWalk += playerWalkSound;
         playerMovment.playerJump += playerJumpControllerSound;
@@ -47,13 +45,13 @@ public class PlayerSound : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        
-        if(timerDownStart == true)
+
+        if (timerDownStart == true)
         {
             timerDown += Time.deltaTime;
-        }    
+        }
 
-        if(timerDown >= 0.2f)
+        if (timerDown >= 0.2f)
         {
             audioSource.Stop();
             audioSource.clip = null;
@@ -62,11 +60,11 @@ public class PlayerSound : MonoBehaviour
             //DownSoundWas = false;
         }
 
-        if(timerUpStart == true)
+        if (timerUpStart == true)
         {
             timerUpCounter += Time.deltaTime;
 
-            if(timerUpCounter >= 0.3f)
+            if (timerUpCounter >= 0.3f)
             {
                 playerJumpSoundWait();
             }
@@ -100,7 +98,7 @@ public class PlayerSound : MonoBehaviour
     }
     private void playerJumpControllerSound()
     {
-        if(itsWalk == true)
+        if (itsWalk == true)
         {
             playerJumpSound();
             itsWalk = false;
@@ -114,7 +112,7 @@ public class PlayerSound : MonoBehaviour
         }
 
         playerJumpSound();
-    } 
+    }
 
     private void playerJumpSound()
     {
@@ -153,4 +151,6 @@ public class PlayerSound : MonoBehaviour
         audioSource.clip = DownAcidPlaneSoundAudio;
         audioSource.Play();
     }
+
 }
+

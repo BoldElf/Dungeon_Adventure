@@ -170,9 +170,10 @@ public class PlayerMovmentV2_0 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (jump == true)
         {
-            if (collision.gameObject.tag != "Roof")
+            if (collision.gameObject.tag != "Roof" && collision.gameObject.tag != "Cut")
             {
                 playerDown?.Invoke();
             }
@@ -181,6 +182,7 @@ public class PlayerMovmentV2_0 : MonoBehaviour
         }
         jumpOn = false;
         startTimer = false;
+        
     }
 
     private void gravityJump()

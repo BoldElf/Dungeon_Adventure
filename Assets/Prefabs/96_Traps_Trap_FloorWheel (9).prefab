@@ -1,5 +1,64 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1719101921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1719101922}
+  - component: {fileID: 1719101924}
+  - component: {fileID: 1719101923}
+  m_Layer: 3
+  m_Name: DeathZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1719101922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719101921}
+  m_LocalRotation: {x: 0.9998063, y: 0.0008035188, z: -0.018748907, w: -0.005931857}
+  m_LocalPosition: {x: 0.04, y: 0.07, z: -0.03}
+  m_LocalScale: {x: 1.2475053, y: 1.2475058, z: 0.7051027}
+  m_Children: []
+  m_Father: {fileID: 2972154979229566948}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -179.322, y: 2.149002, z: -0.10498047}
+--- !u!114 &1719101924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719101921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459c4d84e7f2cc74d93937d0d50e2743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 0}
+--- !u!64 &1719101923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719101921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -344061150032821096, guid: 0702578e4efb1c045acba01655e403dc, type: 3}
 --- !u!1 &1394195454302310227
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +71,7 @@ GameObject:
   - component: {fileID: 9161461158078469240}
   - component: {fileID: 7019750242299609747}
   - component: {fileID: 1832901796}
+  - component: {fileID: 232726243}
   m_Layer: 0
   m_Name: CutWheel
   m_TagString: Untagged
@@ -29,7 +89,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1719101922}
   m_Father: {fileID: 5632294681536739936}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -178,6 +239,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &232726243
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394195454302310227}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -344061150032821096, guid: 0702578e4efb1c045acba01655e403dc, type: 3}
 --- !u!1 &2121803208587704290
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,10 +385,10 @@ MonoBehaviour:
   saw: {fileID: 1394195454302310227}
   rightLocker: {fileID: 5306180815663666065}
   leftLocker: {fileID: 5306180815633655603}
-  directionX: 0
-  directionZ: 1
-  rightLockerNegative: 0
-  rightLockerPositive: 1
+  directionX: 1
+  directionZ: 0
+  rightLockerNegative: 1
+  rightLockerPositive: 0
 --- !u!95 &2059704802
 Animator:
   serializedVersion: 5
